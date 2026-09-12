@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&q=80"
-          alt="Jardín profesional en Vizcaya - UZG Jardinería Unai Zárraga"
+          alt="Jardinero profesional en bizkaia - UZG Jardinería Unai Zárraga"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
@@ -38,8 +38,8 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
           >
-            Tu jardín merece
-            <span className="block text-green-400">verse increíble</span>
+            Jardinería en Bizkaia
+            <span className="block text-green-400">UZG Jardinería</span>
           </motion.h1>
 
           <motion.p
