@@ -62,12 +62,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden p-2 rounded-lg ${scrolled ? "text-stone-900" : "text-white"}`}
-        >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+       <button
+  onClick={() => setMenuOpen(!menuOpen)}
+  className={`md:hidden p-2 rounded-lg ${scrolled ? "text-stone-900" : "text-white"}`}
+  aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+>
+  {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+</button>
       </div>
 
       {/* Mobile menu */}
