@@ -27,7 +27,7 @@ export default function AdminPasswordModal({ onSuccess, onClose }) {
         exit={{ opacity: 0, scale: 0.9, y: 10 }}
         className="relative bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm"
       >
-        <button onClick={onClose} className="absolute top-4 right-4 text-stone-400 hover:text-stone-600">
+        <button onClick={onClose} aria-label="Cerrar modal" className="absolute top-4 right-4 text-stone-400 hover:text-stone-600">
           <X className="w-5 h-5" />
         </button>
 
@@ -56,6 +56,7 @@ export default function AdminPasswordModal({ onSuccess, onClose }) {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400"
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -68,6 +69,7 @@ export default function AdminPasswordModal({ onSuccess, onClose }) {
 
           <button
             type="submit"
+            aria-label="Entrar"
             className="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold rounded-xl py-3 transition-colors"
           >
             Entrar
