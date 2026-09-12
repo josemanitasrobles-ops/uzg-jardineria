@@ -1,25 +1,13 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import Navbar from "../components/landing/Navbar";
 import HeroSection from "../components/landing/HeroSection";
+import SolutionSection from "../components/landing/SolutionSection";
 import FinalCTA from "../components/landing/FinalCTA";
 import Footer from "../components/landing/Footer";
 import AdminPasswordModal from "../components/admin/AdminPasswordModal";
 import AdminPanel from "../components/admin/AdminPanel";
-
-// Componentes de abajo cargados de forma perezosa (Lazy) para evitar bloquear la carga inicial
-const PainPoints = lazy(() => import("../components/landing/PainPoints"));
-const TrustBadges = lazy(() => import("../components/landing/TrustBadges"));
-const SolutionSection = lazy(() => import("../components/landing/SolutionSection"));
-const SobreMi = lazy(() => import("../components/landing/SobreMi"));
-const MaquinariaCarrusel = lazy(() => import("../components/landing/MaquinariaCarrusel"));
-const AntesDepues = lazy(() => import("../components/landing/AntesDepues"));
-const Testimonios = lazy(() => import("../components/landing/Testimonios"));
-const GaleriaFotos = lazy(() => import("../components/landing/GaleriaFotos"));
-const VideosYoutube = lazy(() => import("../components/landing/VideosYoutube"));
-const DocumentosPDF = lazy(() => import("../components/landing/DocumentosPDF"));
-const FormularioResena = lazy(() => import("../components/landing/FormularioResena"));
 
 export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -27,16 +15,7 @@ export default function Home() {
   
   const [visibility, setVisibility] = useState({
     hero: true,
-    pain_points: true,
-    trust_badges: true,
     solution: true,
-    sobre_mi: true,
-    maquinaria: true,
-    antes_despues: true,
-    testimonios: true,
-    galeria: true,
-    videos_youtube: true,
-    documentos_pdf: true,
     cta_final: true,
   });
 
@@ -76,30 +55,16 @@ export default function Home() {
     <div className="min-h-screen bg-stone-50">
       <Navbar />
       {isVisible("hero") && <HeroSection />}
-      
-      <Suspense fallback={<div className="py-12 text-center text-stone-400">Cargando...</div>}>
-        {isVisible("pain_points") && <PainPoints />}
-        {isVisible("trust_badges") && <TrustBadges />}
-        {isVisible("solution") && (
-          <div id="servicios">
-            <SolutionSection />
-          </div>
-        )}
-        {isVisible("sobre_mi") && <SobreMi />}
-        {isVisible("maquinaria") && <MaquinariaCarrusel />}
-        {isVisible("antes_despues") && <AntesDepues />}
-        {isVisible("testimonios") && <Testimonios />}
-        {isVisible("galeria") && <GaleriaFotos />}
-        {isVisible("videos_youtube") && <VideosYoutube />}
-        {isVisible("documentos_pdf") && <DocumentosPDF />}
-        {isVisible("cta_final") && (
-          <div id="contacto">
-            <FinalCTA />
-          </div>
-        )}
-        <FormularioResena />
-      </Suspense>
-
+      {isVisible("solution") && (
+        <div id="servicios">
+          <SolutionSection />
+        </div>
+      )}
+      {isVisible("cta_final") && (
+        <div id="contacto">
+          <FinalCTA />
+        </div>
+      )}
       <Footer onAdminClick={() => setShowPasswordModal(true)} />
 
       <AnimatePresence>
