@@ -2,14 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Leaf, Star } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
-
+import fondoImg from "../../assets/FONDO.webp";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1920&q=80"
+          src={fondoImg}
           alt="Jardinero profesional en bizkaia - UZG Jardinería Unai Zárraga"
           className="w-full h-full object-cover"
         />
