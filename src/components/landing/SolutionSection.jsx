@@ -1,7 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Scissors, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
+import { Scissors, Sparkles, ShieldCheck } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
+
+// Importación de tus imágenes locales optimizadas
+import fondoImg from "../assets/FONDO.webp";
+import huertoImg from "../assets/HUERTO.webp";
+import jardinImg from "../assets/JARDIN.webp";
+// Nota: 'palaImg' está lista por si la quieres usar en otro componente (ej: Hero)
+import palaImg from "../assets/PALA.webp";
 
 const steps = [
   {
@@ -9,21 +16,21 @@ const steps = [
     icon: Sparkles,
     title: "Limpieza completa",
     description: "Retiramos todo lo que sobra: malas hierbas, hojas secas, ramas caídas y residuos acumulados. Tu jardín respira desde el primer día.",
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&q=80",
+    image: jardinImg,
   },
   {
     number: "02",
     icon: Scissors,
     title: "Poda estética y profesional",
     description: "Damos forma a setos, arbustos y árboles con técnicas profesionales. Cada corte tiene un propósito: belleza, salud y armonía visual.",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+    image: palaImg,
   },
   {
     number: "03",
     icon: ShieldCheck,
     title: "Mantenimiento integral",
     description: "Nos encargamos de todo: riego, abono, control de plagas y cuidado continuo. Tú solo disfruta de un jardín impecable, siempre.",
-    image: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=600&q=80",
+    image: huertoImg,
   },
 ];
 
@@ -66,6 +73,7 @@ export default function SolutionSection() {
                   <img
                     src={step.image}
                     alt={step.title}
+                    loading="lazy"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm">
