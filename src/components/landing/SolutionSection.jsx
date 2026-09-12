@@ -4,11 +4,10 @@ import { Scissors, Sparkles, ShieldCheck } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
 // Importación de tus imágenes locales optimizadas
-import fondoImg from "../assets/FONDO.webp";
-import huertoImg from "../assets/HUERTO.webp";
-import jardinImg from "../assets/JARDIN.webp";
-// Nota: 'palaImg' está lista por si la quieres usar en otro componente (ej: Hero)
-import palaImg from "../assets/PALA.webp";
+import fondoImg from "../assets/fondo.webp";
+import huertoImg from "../assets/huerto.webp";
+import jardinImg from "../assets/jardin.webp";
+import palaImg from "../assets/pala.webp";
 
 const steps = [
   {
