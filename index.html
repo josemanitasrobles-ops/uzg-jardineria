@@ -1,15 +1,29 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-16L5N78DSN"></script>
+    <!-- Google tag (gtag.js) - Se carga condicionalmente según las cookies -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function loadGoogleAnalytics() {
+        if (window.gaLoaded) return;
+        window.gaLoaded = true;
+        var script1 = document.createElement('script');
+        script1.async = true;
+        script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-16L5N78DSN';
+        document.head.appendChild(script1);
 
-      gtag('config', 'G-16L5N78DSN');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-16L5N78DSN');
+      }
+
+      // Si ya aceptó en una visita anterior, cargamos Google Analytics directamente
+      if (localStorage.getItem('cookieConsent') === 'all') {
+        loadGoogleAnalytics();
+      }
     </script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://cdn.phototourl.com/free/2026-09-11-93fa78dd-8fb4-451d-a45d-9b1fc0860b6a.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,24 +115,34 @@
     <!-- This site is converting visitors into subscribers and customers with https://respond.io -->
     <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc"></script>
     <!-- https://respond.io -->
-    <!-- Aviso de Cookies RGPD -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; font-family: sans-serif; box-sizing: border-box;">
-      <p style="margin: 0; font-size: 14px; line-height: 1.4; max-width: 80%;">
-        Utilizamos cookies propias y de terceros (Google Analytics) para mejorar nuestros servicios y analizar tu navegación. Si continúas navegando, consideramos que aceptas su uso. 
-        <a href="#" style="color: #4CAF50; text-decoration: underline;">Política de cookies</a>
-      </p>
-      <div>
-        <button onclick="acceptCookies()" style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 4px;">Aceptar</button>
+
+    <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 9999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50;">
+      <div style="flex: 1; min-width: 280px;">
+        <p style="margin: 0 0 5px 0; font-size: 15px; font-weight: bold;">Política de Cookies</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.4; color: #ccc;">
+          Utilizamos cookies propias y de terceros (como Google Analytics) para analizar el tráfico y mejorar tu experiencia. Puedes aceptar todas, rechazar las opcionales o configurarlas.
+        </p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="handleCookies('reject')" style="background: transparent; color: #ccc; border: 1px solid #777; padding: 8px 14px; cursor: pointer; font-size: 13px; border-radius: 4px;">Rechazar</button>
+        <button onclick="handleCookies('necessary')" style="background: #333; color: #fff; border: 1px solid #555; padding: 8px 14px; cursor: pointer; font-size: 13px; border-radius: 4px;">Solo necesarias</button>
+        <button onclick="handleCookies('all')" style="background: #4CAF50; color: white; border: none; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: bold; border-radius: 4px;">Aceptar todo</button>
       </div>
     </div>
 
     <script>
-      function acceptCookies() {
+      function handleCookies(action) {
+        localStorage.setItem('cookieConsent', action);
         document.getElementById('cookie-banner').style.display = 'none';
-        localStorage.setItem('cookiesAccepted', 'true');
+        if (action === 'all') {
+          loadGoogleAnalytics();
+        }
       }
-      if (localStorage.getItem('cookiesAccepted') === 'true') {
-        document.getElementById('cookie-banner').style.display = 'none';
+
+      // Mostrar el banner solo si el usuario no ha tomado ninguna decisión previa
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
       }
     </script>
   </body>
