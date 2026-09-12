@@ -8,7 +8,6 @@ export default function FormularioResena() {
 
   const handleGoogleReview = (e) => {
     e.preventDefault();
-    // Abre directamente el enlace oficial de reseñas de Google en una nueva pestaña
     window.open("https://g.page/r/CSfg4B6u0ql_EBM/review", "_blank");
   };
 
@@ -38,7 +37,6 @@ export default function FormularioResena() {
           onSubmit={handleGoogleReview}
           className="bg-stone-800 rounded-2xl p-6 md:p-8 space-y-5 text-center"
         >
-          {/* Estrellas decorativas o interactivas */}
           <div>
             <label className="text-stone-300 text-sm font-medium mb-2 block">Valora tu experiencia</label>
             <div className="flex justify-center gap-2">
@@ -78,5 +76,4 @@ export default function FormularioResena() {
       </div>
     </section>
   );
-}
 }
