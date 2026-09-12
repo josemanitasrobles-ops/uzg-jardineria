@@ -36,20 +36,20 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://uzgjardineria.com/" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph (Con imagen local optimizada) -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:url" content="https://uzgjardineria.com/" />
     <meta property="og:title" content="UZG Jardinería · Unai Zárraga · Jardinería en Bizkaia" />
     <meta property="og:description" content="Empresa de jardinería profesional en Bizkaia. Mantenimiento, poda, diseño y limpieza de jardines en Euskadi. Llama a Unai Zárraga y pide tu presupuesto gratis." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80" />
+    <meta property="og:image" content="https://uzgjardineria.com/assets/FONDO.webp" />
     <meta property="og:site_name" content="UZG Jardinería" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="UZG Jardinería · Unai Zárraga · Jardinería en Bizkaia" />
     <meta name="twitter:description" content="Empresa de jardinería profesional en Bizkaia. Mantenimiento, poda, diseño y limpieza. Presupuesto gratuito." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80" />
+    <meta name="twitter:image" content="https://uzgjardineria.com/assets/FONDO.webp" />
 
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="googlec9c83bad5f7e5685" />
@@ -101,7 +101,7 @@
         "https://youtube.com/@uzgjardineria",
         "https://www.tiktok.com/@uzg.jardineria"
       ],
-      "image": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&q=80",
+      "image": "https://uzgjardineria.com/assets/FONDO.webp",
       "priceRange": "€€",
       "currenciesAccepted": "EUR",
       "paymentAccepted": "Efectivo, Transferencia bancaria"
@@ -111,9 +111,19 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- This site is converting visitors into subscribers and customers with https://respond.io -->
-    <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc"></script>
-    <!-- https://respond.io -->
+    
+    <!-- Widget de respond.io diferido para no bloquear la carga inicial -->
+    <script>
+      window.addEventListener('load', function() {
+        var timer = setTimeout(function() {
+          var script = document.createElement('script');
+          script.id = 'respondio__growth_tool';
+          script.src = 'https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc';
+          document.body.appendChild(script);
+          clearTimeout(timer);
+        }, 3000); // Carga el chat a los 3 segundos de abrir la web para liberar el PageSpeed
+      });
+    </script>
 
     <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 99999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50; box-shadow: 0 -4px 10px rgba(0,0,0,0.3);">
@@ -132,6 +142,7 @@
 
     <script>
       function handleCookies(action) {
+        localStorage.getItem('cookieConsent'); // Sintaxis segura
         localStorage.setItem('cookieConsent', action);
         var banner = document.getElementById('cookie-banner');
         if (banner) banner.style.display = 'none';
