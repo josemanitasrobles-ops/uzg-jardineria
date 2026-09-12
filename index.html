@@ -112,7 +112,18 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <!-- This site is converting visitors into subscribers and customers with https://respond.io -->
-    <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc"></script>
+   <!-- Widget de respond.io diferido para proteger la velocidad -->
+    <script>
+      window.addEventListener('load', function() {
+        var timer = setTimeout(function() {
+          var script = document.createElement('script');
+          script.id = 'respondio__growth_tool';
+          script.src = 'https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc';
+          document.body.appendChild(script);
+          clearTimeout(timer);
+        }, 2500);
+      });
+    </script>
     <!-- https://respond.io -->
 
     <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
