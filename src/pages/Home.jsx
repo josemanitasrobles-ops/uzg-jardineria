@@ -7,6 +7,7 @@ import PainPoints from "../components/landing/PainPoints";
 import TrustBadges from "../components/landing/TrustBadges";
 import SolutionSection from "../components/landing/SolutionSection";
 import FinalCTA from "../components/landing/FinalCTA";
+import AntesDepues from "../components/landing/AntesDepues";
 import Testimonios from "../components/landing/Testimonios";
 import SobreMi from "../components/landing/SobreMi";
 import MaquinariaCarrusel from "../components/landing/MaquinariaCarrusel";
