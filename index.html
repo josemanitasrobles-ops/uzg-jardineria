@@ -36,7 +36,7 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://uzgjardineria.com/" />
 
-    <!-- Open Graph (Con imagen local optimizada) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:url" content="https://uzgjardineria.com/" />
@@ -111,19 +111,9 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    
-    <!-- Widget de respond.io diferido para no bloquear la carga inicial -->
-    <script>
-      window.addEventListener('load', function() {
-        var timer = setTimeout(function() {
-          var script = document.createElement('script');
-          script.id = 'respondio__growth_tool';
-          script.src = 'https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc';
-          document.body.appendChild(script);
-          clearTimeout(timer);
-        }, 3000); // Carga el chat a los 3 segundos de abrir la web para liberar el PageSpeed
-      });
-    </script>
+    <!-- This site is converting visitors into subscribers and customers with https://respond.io -->
+    <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc"></script>
+    <!-- https://respond.io -->
 
     <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 99999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50; box-shadow: 0 -4px 10px rgba(0,0,0,0.3);">
@@ -142,7 +132,6 @@
 
     <script>
       function handleCookies(action) {
-        localStorage.getItem('cookieConsent'); // Sintaxis segura
         localStorage.setItem('cookieConsent', action);
         var banner = document.getElementById('cookie-banner');
         if (banner) banner.style.display = 'none';
