@@ -148,6 +148,7 @@ export default function AdminPanel({ onClose }) {
           <button
             onClick={saveAll}
             disabled={saving}
+            aria-label="Guardar cambios"
             className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all"
           >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
@@ -155,6 +156,7 @@ export default function AdminPanel({ onClose }) {
           </button>
           <button
             onClick={onClose}
+            aria-label="Salir del panel de administración"
             className="flex items-center gap-2 text-stone-400 hover:text-white text-sm transition-colors"
           >
             <LogOut className="w-4 h-4" />
@@ -174,6 +176,7 @@ export default function AdminPanel({ onClose }) {
             <div key={section} className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
               <button
                 onClick={() => toggleSection(section)}
+                aria-label={`Alternar sección ${section}`}
                 className="w-full flex items-center justify-between px-6 py-4 hover:bg-stone-50 transition-colors"
               >
                 <div className="flex items-center gap-3">
@@ -207,6 +210,7 @@ export default function AdminPanel({ onClose }) {
                             {!DEFAULT_CONTENT.find(d => d.key === item.key) && (
                               <button
                                 onClick={() => deleteItem(item.id)}
+                                aria-label="Eliminar elemento"
                                 className="opacity-0 group-hover:opacity-100 transition-opacity text-red-400 hover:text-red-600"
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -244,7 +248,7 @@ export default function AdminPanel({ onClose }) {
                               {item.value && (
                                 <div className="relative rounded-xl overflow-hidden h-32 bg-stone-100">
                                   <img src={item.value} alt="" className="w-full h-full object-cover" />
-                                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity" aria-label="Vista previa de la imagen">
                                     <Eye className="w-6 h-6 text-white" />
                                   </div>
                                 </div>
@@ -304,10 +308,10 @@ export default function AdminPanel({ onClose }) {
                             className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-green-500"
                           />
                           <div className="flex gap-2">
-                            <button onClick={addNewItem} className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                            <button onClick={addNewItem} aria-label="Añadir nuevo campo" className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                               Añadir
                             </button>
-                            <button onClick={() => setAddingNew(false)} className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200 transition-colors">
+                            <button onClick={() => setAddingNew(false)} aria-label="Cancelar adición" className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200 transition-colors">
                               Cancelar
                             </button>
                           </div>
@@ -315,6 +319,7 @@ export default function AdminPanel({ onClose }) {
                       ) : (
                         <button
                           onClick={() => { setAddingNew(true); setNewItem({ label: "", value: "", type: "text", section }); }}
+                          aria-label="Añadir campo a esta sección"
                           className="flex items-center gap-2 text-sm text-stone-400 hover:text-green-600 transition-colors mt-2"
                         >
                           <Plus className="w-4 h-4" />
@@ -369,6 +374,7 @@ export default function AdminPanel({ onClose }) {
                 setOpenSections(p => ({ ...p, [newItemSection]: true }));
                 setNewItemSection("");
               }}
+              aria-label="Crear nueva sección"
               className="bg-stone-900 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-stone-700 transition-colors flex items-center gap-2"
             >
               <Plus className="w-4 h-4" />
