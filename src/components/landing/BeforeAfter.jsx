@@ -4,24 +4,6 @@ import { Camera, ArrowRight } from "lucide-react";
 
 // Placeholder gallery — replace these with real before/after photos
 const gallery = [
-  {
-    id: 1,
-    before: "https://images.unsplash.com/photo-1621149437721-35f889c33281?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80",
-    label: "Jardín residencial · Madrid",
-  },
-  {
-    id: 2,
-    before: "https://images.unsplash.com/photo-1599629954294-43a0e9bdfc25?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&q=80",
-    label: "Patio exterior · Barcelona",
-  },
-  {
-    id: 3,
-    before: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80",
-    after: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
-    label: "Chalet privado · Valencia",
-  },
 ];
 
 function GalleryCard({ item, index }) {
