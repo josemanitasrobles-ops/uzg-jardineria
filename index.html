@@ -18,7 +18,6 @@
         gtag('config', 'G-16L5N78DSN');
       }
 
-      // Si ya aceptó en una visita anterior, cargamos Google Analytics directamente
       if (localStorage.getItem('cookieConsent') === 'all') {
         loadGoogleAnalytics();
       }
@@ -116,17 +115,8 @@
     <script id="respondio__growth_tool" src="https://cdn.respond.io/widget/widget.js?wId=17eab963-eeba-4064-ac2d-c76b4932bfcc"></script>
     <!-- https://respond.io -->
 
-    <!-- Pie de página legal (Aviso Legal y Política de Privacidad) -->
-    <footer style="background: #111; color: #888; padding: 20px; text-align: center; font-size: 13px; font-family: sans-serif; border-top: 1px solid #333; margin-top: 40px;">
-      <p style="margin: 0 0 10px 0;">© 2026 UZG Jardinería · Unai Zárraga · Todos los derechos reservados en Bizkaia.</p>
-      <div style="display: flex; justify-content: center; gap: 20px;">
-        <a href="/aviso-legal.html" style="color: #aaa; text-decoration: underline;">Aviso Legal</a>
-        <a href="/politica-privacidad.html" style="color: #aaa; text-decoration: underline;">Política de Privacidad</a>
-      </div>
-    </footer>
-
     <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 9999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50;">
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 99999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50; box-shadow: 0 -4px 10px rgba(0,0,0,0.3);">
       <div style="flex: 1; min-width: 280px;">
         <p style="margin: 0 0 5px 0; font-size: 15px; font-weight: bold;">Política de Cookies</p>
         <p style="margin: 0; font-size: 13px; line-height: 1.4; color: #ccc;">
@@ -143,16 +133,20 @@
     <script>
       function handleCookies(action) {
         localStorage.setItem('cookieConsent', action);
-        document.getElementById('cookie-banner').style.display = 'none';
+        var banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.display = 'none';
         if (action === 'all') {
           loadGoogleAnalytics();
         }
       }
 
-      // Mostrar el banner solo si el usuario no ha tomado ninguna decisión previa
-      if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookie-banner').style.display = 'flex';
-      }
+      window.addEventListener('DOMContentLoaded', function() {
+        var consent = localStorage.getItem('cookieConsent');
+        if (!consent) {
+          var banner = document.getElementById('cookie-banner');
+          if (banner) banner.style.display = 'flex';
+        }
+      });
     </script>
   </body>
 </html>
