@@ -21,7 +21,7 @@ export default function Footer({ onAdminClick }) {
 
           {/* Contact */}
           <div className="space-y-3">
-            <h4 className="text-white font-semibold text-sm mb-4">Contacto</h4>
+            <p className="text-white font-semibold text-sm mb-4">Contacto</p>
             <a href="tel:+34623063799" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
               <Phone className="w-4 h-4" />
               623 06 37 99
@@ -72,7 +72,7 @@ export default function Footer({ onAdminClick }) {
 
           {/* Services */}
           <div className="space-y-3">
-            <h4 className="text-white font-semibold text-sm mb-4">Servicios</h4>
+            <p className="text-white font-semibold text-sm mb-4">Servicios</p>
             <p className="text-sm">Mantenimiento de jardines</p>
             <p className="text-sm">Poda profesional</p>
             <p className="text-sm">Limpieza de exteriores</p>
