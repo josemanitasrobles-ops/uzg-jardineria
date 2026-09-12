@@ -95,14 +95,7 @@ export default function Footer({ onAdminClick }) {
               Powered by Samuel Robles
             </a>
           </div>
-          <button
-            onClick={onAdminClick}
-            className="flex items-center gap-1.5 text-stone-700 hover:text-stone-400 transition-colors text-xs"
-            title="Admin"
-          >
-            <Settings className="w-3.5 h-3.5" />
-            <span>Admin</span>
-          </button>
+        
         </div>
       </div>
     </footer>
