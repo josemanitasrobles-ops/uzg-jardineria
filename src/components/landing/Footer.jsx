@@ -92,7 +92,7 @@ export default function Footer({ onAdminClick }) {
               rel="noopener noreferrer"
               className="text-stone-600 hover:text-stone-300 transition-colors text-xs"
             >
-              Powered by Cartel Craft
+              Powered by Samuel Robles
             </a>
           </div>
           <button
