@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Leaf, FileText } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
+import palaImg from "../../assets/PALA.webp";
 
 export default function FinalCTA() {
   return (
@@ -9,7 +10,7 @@ export default function FinalCTA() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=80"
+          src={palaImg}
           alt="Jardín cuidado por UZG Jardinería Unai Zárraga en Euskadi"
           className="w-full h-full object-cover"
         />
