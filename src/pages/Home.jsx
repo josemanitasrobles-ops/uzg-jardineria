@@ -8,7 +8,6 @@ import TrustBadges from "../components/landing/TrustBadges";
 import SolutionSection from "../components/landing/SolutionSection";
 import FinalCTA from "../components/landing/FinalCTA";
 import Testimonios from "../components/landing/Testimonios";
-import AntesDepues from "../components/landing/AntesDepues";
 import SobreMi from "../components/landing/SobreMi";
 import MaquinariaCarrusel from "../components/landing/MaquinariaCarrusel";
 import Footer from "../components/landing/Footer";
