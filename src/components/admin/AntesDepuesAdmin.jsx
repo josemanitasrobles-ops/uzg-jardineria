@@ -48,6 +48,7 @@ export default function AntesDepuesAdmin() {
     <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
       <button
         onClick={() => setOpen(o => !o)}
+        aria-label="Alternar sección Antes y Después"
         className="w-full flex items-center justify-between px-6 py-4 hover:bg-stone-50 transition-colors"
       >
         <div className="flex items-center gap-3">
@@ -120,6 +121,7 @@ export default function AntesDepuesAdmin() {
                   <div className="flex justify-end gap-2">
                     <button
                       onClick={() => remove(p.id)}
+                      aria-label="Eliminar par antes y después"
                       className="text-red-400 hover:text-red-600 transition-colors p-1.5 rounded-lg hover:bg-red-50"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -127,6 +129,7 @@ export default function AntesDepuesAdmin() {
                     <button
                       onClick={() => save(p)}
                       disabled={saving === p.id}
+                      aria-label="Guardar par"
                       className="flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
                     >
                       {saving === p.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
@@ -170,13 +173,14 @@ export default function AntesDepuesAdmin() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button onClick={add} className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">Añadir</button>
-                    <button onClick={() => setAdding(false)} className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200 transition-colors">Cancelar</button>
+                    <button onClick={add} aria-label="Añadir nuevo par" className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">Añadir</button>
+                    <button onClick={() => setAdding(false)} aria-label="Cancelar la adición" className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200 transition-colors">Cancelar</button>
                   </div>
                 </div>
               ) : (
                 <button
                   onClick={() => setAdding(true)}
+                  aria-label="Añadir par antes/después"
                   className="flex items-center gap-2 text-sm text-stone-400 hover:text-green-600 transition-colors mt-2"
                 >
                   <Plus className="w-4 h-4" />
