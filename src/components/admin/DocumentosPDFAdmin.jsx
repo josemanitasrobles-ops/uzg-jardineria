@@ -62,6 +62,7 @@ export default function DocumentosPDFAdmin() {
     <div className="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
+        aria-label="Alternar sección Documentos PDF"
         className="w-full flex items-center justify-between px-6 py-4 hover:bg-stone-50 transition-colors"
       >
         <div className="flex items-center gap-3">
@@ -103,7 +104,11 @@ export default function DocumentosPDFAdmin() {
                             placeholder="Orden"
                             className="w-28 border border-stone-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-green-500" />
                         </div>
-                        <button onClick={() => deleteDoc(doc.id)} className="text-red-400 hover:text-red-600 self-start">
+                        <button 
+                          onClick={() => deleteDoc(doc.id)} 
+                          aria-label="Eliminar documento PDF"
+                          className="text-red-400 hover:text-red-600 self-start p-1"
+                        >
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
@@ -133,18 +138,38 @@ export default function DocumentosPDFAdmin() {
                         onChange={e => setNuevo(p => ({ ...p, orden: Number(e.target.value) }))}
                         className="w-28 border border-stone-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-green-500" />
                       <div className="flex gap-2">
-                        <button onClick={addDoc} className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700">Añadir</button>
-                        <button onClick={() => setAddingNew(false)} className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200">Cancelar</button>
+                        <button 
+                          onClick={addDoc} 
+                          aria-label="Añadir documento"
+                          className="bg-green-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-green-700"
+                        >
+                          Añadir
+                        </button>
+                        <button 
+                          onClick={() => setAddingNew(false)} 
+                          aria-label="Cancelar adición de documento"
+                          className="text-stone-500 text-sm px-4 py-2 rounded-lg hover:bg-stone-200"
+                        >
+                          Cancelar
+                        </button>
                       </div>
                     </div>
                   ) : (
-                    <button onClick={() => setAddingNew(true)} className="flex items-center gap-2 text-sm text-stone-400 hover:text-green-600 transition-colors">
+                    <button 
+                      onClick={() => setAddingNew(true)} 
+                      aria-label="Añadir documento"
+                      className="flex items-center gap-2 text-sm text-stone-400 hover:text-green-600 transition-colors"
+                    >
                       <Plus className="w-4 h-4" /> Añadir documento
                     </button>
                   )}
 
-                  <button onClick={saveAll} disabled={saving}
-                    className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all">
+                  <button 
+                    onClick={saveAll} 
+                    disabled={saving}
+                    aria-label="Guardar cambios"
+                    className="flex items-centar gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all"
+                  >
                     {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                     {saving ? "Guardando..." : saved ? "¡Guardado!" : "Guardar cambios"}
                   </button>
