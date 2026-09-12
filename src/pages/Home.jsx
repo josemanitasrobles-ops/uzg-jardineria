@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import Navbar from "../components/landing/Navbar";
@@ -35,20 +35,17 @@ export default function Home() {
       });
   };
 
-  useEffect(() => {
-    loadVisibility();
-  }, []);
-
   const isVisible = (key) => visibility[key] !== false;
 
   const handleAdminSuccess = () => {
     setShowPasswordModal(false);
     setShowAdminPanel(true);
+    loadVisibility(); // Se carga únicamente cuando entras al panel de administración
   };
 
   const handleAdminClose = () => {
     setShowAdminPanel(false);
-    loadVisibility();
+    loadVisibility(); // Se actualiza al cerrar el panel por si cambiaste algo
   };
 
   return (
