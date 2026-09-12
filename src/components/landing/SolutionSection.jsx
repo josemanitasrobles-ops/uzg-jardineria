@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Scissors, Sparkles, ShieldCheck } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
-// Importación de tus imágenes locales optimizadas
-import fondoImg from "../assets/FONDO.webp";
-import huertoImg from "../assets/HUERTO.webp";
-import jardinImg from "../assets/JARDIN.webp";
-import palaImg from "../assets/PALA.webp";
+// Importación de tus imágenes locales optimizadas con la ruta relativa correcta
+import fondoImg from "../../assets/FONDO.webp";
+import huertoImg from "../../assets/HUERTO.webp";
+import jardinImg from "../../assets/JARDIN.webp";
+import palaImg from "../../assets/PALA.webp";
 
 const steps = [
   {
