@@ -4,7 +4,7 @@ import Navbar from "../components/landing/Navbar";
 import HeroSection from "../components/landing/HeroSection";
 import SolutionSection from "../components/landing/SolutionSection";
 import SobreMi from "../components/landing/SobreMi";
-import FormularioResena from "../components/landing/formularioresena";
+import FormularioResena from "../components/landing/FormularioResena";
 import FinalCTA from "../components/landing/FinalCTA";
 import Footer from "../components/landing/Footer";
 import AdminPasswordModal from "../components/admin/AdminPasswordModal";
