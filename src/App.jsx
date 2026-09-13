@@ -10,19 +10,22 @@ import AvisoLegal from './pages/AvisoLegal';
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
 
+// Importa aquí tus páginas legales si quieres mantenerlas:
+import AvisoLegal from './pages/AvisoLegal';
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
+import PoliticaCookies from './pages/PoliticaCookies';
+
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-stone-900">
+        <div className="w-8 h-8 border-4 border-slate-200 border-t-green-500 rounded-full animate-spin"></div>
       </div>
     );
   }
 
-  // Handle authentication errors
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
@@ -32,11 +35,13 @@ const AuthenticatedApp = () => {
     }
   }
 
-  // Render main app directly at the root path "/"
   return (
     <Routes>
       
       <Route path="/" element={<Home />} />
+      <Route path="/aviso-legal" element={<AvisoLegal />} />
+      <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+      <Route path="/politica-cookies" element={<PoliticaCookies />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
