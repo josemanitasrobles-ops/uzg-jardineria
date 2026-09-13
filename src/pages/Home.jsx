@@ -9,6 +9,7 @@ import FinalCTA from "../components/landing/FinalCTA";
 import Footer from "../components/landing/Footer";
 import AdminPasswordModal from "../components/admin/AdminPasswordModal";
 import AdminPanel from "../components/admin/AdminPanel";
+import GaleriaFotos from "../components/landing/GaleriaFotos";
 
 export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -39,11 +40,16 @@ export default function Home() {
       <div id="sobre-mi">
         <SobreMi />
       </div>
+      {/* Sección de fotos */}
+      <div id="fotos">
+        <GaleriaFotos />
+      </div>
 
       {/* Sección de Reseñas */}
       <div id="resenas">
         <FormularioResena />
       </div>
+    
 
       {/* Sección de Contacto Final */}
       <div id="contacto">

@@ -1,21 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { base44 } from "@/api/base44Client";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Importa tus imágenes optimizadas en formato .webp desde src/assets/
+import foto1 from "../../assets/foto1.webp";
+import foto2 from "../../assets/foto2.webp";
+import foto3 from "../../assets/foto3.webp";
+import foto4 from "../../assets/foto4.webp";
+// Añade aquí más fotos si tienes (foto4, foto5, etc.)
+
 export default function GaleriaFotos() {
-  const [fotos, setFotos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [lightbox, setLightbox] = useState(null); // index
+  const [lightbox, setLightbox] = useState(null);
 
-  useEffect(() => {
-    base44.entities.FotoGaleria.list("orden", 50).then(data => {
-      setFotos(data);
-      setLoading(false);
-    });
-  }, []);
-
-  if (loading || fotos.length === 0) return null;
+  const fotos = [
+    {
+      url: foto1,
+      titulo: ""
+    },
+    {
+      url: foto2,
+      titulo: ""
+    },
+    {
+      url: foto3,
+      titulo: ""
+    },
+     {
+      url: foto4,
+      titulo: ""
+    }
+  ];
 
   const prev = () => setLightbox(i => (i - 1 + fotos.length) % fotos.length);
   const next = () => setLightbox(i => (i + 1) % fotos.length);
@@ -42,7 +56,7 @@ export default function GaleriaFotos() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {fotos.map((foto, i) => (
             <motion.div
-              key={foto.id}
+              key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -52,7 +66,8 @@ export default function GaleriaFotos() {
             >
               <img
                 src={foto.url}
-                alt={foto.titulo ? `${foto.titulo} – UZG Jardinería Unai Zárraga Vizcaya` : "Trabajo de jardinería en Vizcaya – UZG Jardinería Unai Zárraga"}
+                alt={foto.titulo || "Trabajo de jardinería UZG Jardinería"}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {foto.titulo && (
@@ -67,7 +82,7 @@ export default function GaleriaFotos() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox para ampliar las fotos */}
       <AnimatePresence>
         {lightbox !== null && (
           <motion.div
@@ -94,7 +109,7 @@ export default function GaleriaFotos() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               src={fotos[lightbox]?.url}
-              alt={fotos[lightbox]?.titulo ? `${fotos[lightbox].titulo} – UZG Jardinería Unai Zárraga Vizcaya` : "Jardinería profesional en Vizcaya – UZG Jardinería Unai Zárraga"}
+              alt="Ampliación trabajo UZG Jardinería"
               className="max-h-[85vh] max-w-[90vw] object-contain rounded-xl"
               onClick={(e) => e.stopPropagation()}
             />

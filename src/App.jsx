@@ -10,6 +10,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import AvisoLegal from './pages/AvisoLegal';
 import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
+import GaleriaFotos from './components/landing/GaleriaFotos'; // <--- Importamos la galería
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError } = useAuth();
@@ -29,6 +30,7 @@ const AuthenticatedApp = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/galeria" element={<GaleriaFotos />} /> {/* <--- Añadimos la ruta */}
       <Route path="/aviso-legal" element={<AvisoLegal />} />
       <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
       <Route path="/politica-cookies" element={<PoliticaCookies />} />
