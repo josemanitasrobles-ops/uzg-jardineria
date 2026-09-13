@@ -5,7 +5,6 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from "./lib/AuthContext";
 import UserNotRegisteredError from "./components/UserNotRegisteredError";
 import Home from './pages/Home';
-import { Navigate } from 'react-router-dom';
 import { QueryClientProvider } from "@tanstack/react-query";
 
 const AuthenticatedApp = () => {
@@ -25,25 +24,21 @@ const AuthenticatedApp = () => {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      // Redirect to login automatically
       navigateToLogin();
       return null;
     }
   }
 
-  // Render the main app
+  // Render main app directly at the root path "/"
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/Home" replace />} />
-      <Route path="/Home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
 
-
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
@@ -53,7 +48,7 @@ function App() {
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
