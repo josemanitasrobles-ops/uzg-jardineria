@@ -48,6 +48,7 @@ export default function FormularioResena() {
                   onMouseEnter={() => setHover(n)}
                   onMouseLeave={() => setHover(0)}
                   className="transition-transform hover:scale-110 focus:outline-none"
+                  aria-label={`Valorar con ${n} estrella${n > 1 ? 's' : ''}`}
                 >
                   <Star
                     className={`w-10 h-10 transition-colors ${
