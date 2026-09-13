@@ -11,9 +11,7 @@ import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
 import PoliticaCookies from './pages/PoliticaCookies';
 
 // Importa aquí tus páginas legales si quieres mantenerlas:
-import AvisoLegal from './pages/AvisoLegal';
-import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
-import PoliticaCookies from './pages/PoliticaCookies';
+
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
