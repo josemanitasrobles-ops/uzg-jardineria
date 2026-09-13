@@ -3,8 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "../components/landing/Navbar";
 import HeroSection from "../components/landing/HeroSection";
 import SolutionSection from "../components/landing/SolutionSection";
-// Si tienes el archivo de reseñas creado en components/landing/ReviewsSection, descomenta la siguiente línea:
-import ReviewsSection from "../components/landing/FormularioResena";
+import FormularioResena from "../components/landing/formularioresena";
 import FinalCTA from "../components/landing/FinalCTA";
 import Footer from "../components/landing/Footer";
 import AdminPasswordModal from "../components/admin/AdminPasswordModal";
@@ -30,15 +29,15 @@ export default function Home() {
       {/* Sección Principal */}
       <HeroSection />
 
-      {/* Sección de Servicios / Solución */}
+      {/* Sección de Servicios */}
       <div id="servicios">
         <SolutionSection />
       </div>
 
-      {/* Sección de Reseñas (Descomenta la línea de arriba y esta si quieres que aparezca aquí) */}
-      {/* <div id="reseñas">
-        <ReviewsSection />
-      </div> */}
+      {/* Sección de Reseñas */}
+      <div id="resenas">
+        <FormularioResena />
+      </div>
 
       {/* Sección de Contacto Final */}
       <div id="contacto">
