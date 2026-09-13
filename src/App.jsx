@@ -6,6 +6,9 @@ import { AuthProvider, useAuth } from "./lib/AuthContext";
 import UserNotRegisteredError from "./components/UserNotRegisteredError";
 import Home from './pages/Home';
 import { QueryClientProvider } from "@tanstack/react-query";
+import AvisoLegal from './pages/AvisoLegal';
+import PoliticaPrivacidad from './pages/PoliticaPrivacidad';
+import PoliticaCookies from './pages/PoliticaCookies';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -32,6 +35,7 @@ const AuthenticatedApp = () => {
   // Render main app directly at the root path "/"
   return (
     <Routes>
+      
       <Route path="/" element={<Home />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
@@ -44,6 +48,11 @@ function App() {
       <QueryClientProvider client={queryClientInstance}>
         <Router>
           <AuthenticatedApp />
+          <Route path="/" element={<Home />} />
+          <Route path="/aviso-legal" element={<AvisoLegal />} />
+          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/politica-cookies" element={<PoliticaCookies />} />
+          <Route path="*" element={<PageNotFound />} />
         </Router>
         <Toaster />
       </QueryClientProvider>

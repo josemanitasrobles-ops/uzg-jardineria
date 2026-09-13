@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Leaf, Phone, MessageCircle, MapPin, Settings, Instagram, Youtube } from "lucide-react";
 
 export default function Footer({ onAdminClick }) {
@@ -79,6 +80,11 @@ export default function Footer({ onAdminClick }) {
             <p className="text-sm">Diseño de jardines</p>
           </div>
         </div>
+        <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-400 mt-8 pt-8 border-t border-stone-800">
+  <Link to="/aviso-legal" className="hover:text-white transition-colors">Aviso Legal</Link>
+  <Link to="/politica-privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link>
+  <Link to="/politica-cookies" className="hover:text-white transition-colors">Política de Cookies</Link>
+</div>
 
         <div className="border-t border-stone-800 pt-8 flex items-center justify-between">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
