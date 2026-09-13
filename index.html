@@ -161,5 +161,32 @@
         }
       });
     </script>
+    <script>
+  // Función que maneja los botones del banner
+  function handleCookies(action) {
+    // Guardamos que el usuario ya ha tomado una decisión
+    localStorage.setItem("uzg_cookies_decision", action);
+    // Ocultamos el banner inmediatamente
+    const banner = document.getElementById("cookie-banner");
+    if (banner) {
+      banner.style.display = "none";
+    }
+  }
+
+  // Comprobamos al cargar la página si ya se tomó una decisión previa
+  window.addEventListener("DOMContentLoaded", () => {
+    const decision = localStorage.getItem("uzg_cookies_decision");
+    
+    // Si NO hay ninguna decisión guardada, lo mostramos tras 5 segundos
+    if (!decision) {
+      setTimeout(() => {
+        const banner = document.getElementById("cookie-banner");
+        if (banner) {
+          banner.style.display = "flex";
+        }
+      }, 5000); // 5000 milisegundos = 5 segundos
+    }
+  });
+</script>
   </body>
 </html>
