@@ -93,7 +93,7 @@ export default function Footer({ onAdminClick }) {
             </p>
             <span className="hidden sm:inline text-stone-700 text-xs">·</span>
             <a
-              href="https://cartel-craft-official.base44.app"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="text-stone-600 hover:text-stone-300 transition-colors text-xs"
