@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // <--- Importante para cambiar de página
+import { Link } from "react-router-dom";
 import { Leaf, Phone, Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -22,35 +22,27 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
+        <a href="#" className="flex items-center gap-2.5">
           <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${scrolled ? "bg-green-600" : "bg-white/15 backdrop-blur-sm"}`}>
             <Leaf className={`w-5 h-5 ${scrolled ? "text-white" : "text-green-400"}`} />
           </div>
           <span className={`font-bold text-lg tracking-tight ${scrolled ? "text-stone-900" : "text-white"}`}>
             UZG Jardinería
           </span>
-        </Link>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           <a
-            href="/#servicios"
+            href="#servicios"
             className={`text-sm font-medium transition-colors ${
               scrolled ? "text-stone-500 hover:text-stone-900" : "text-white/70 hover:text-white"
             }`}
           >
             Servicios
           </a>
-          <Link
-            to="/galeria"
-            className={`text-sm font-medium transition-colors ${
-              scrolled ? "text-stone-500 hover:text-stone-900" : "text-white/70 hover:text-white"
-            }`}
-          >
-            Galería
-          </Link>
           <a
-            href="/#contacto"
+            href="#contacto"
             className={`text-sm font-medium transition-colors ${
               scrolled ? "text-stone-500 hover:text-stone-900" : "text-white/70 hover:text-white"
             }`}
@@ -80,26 +72,19 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (Aquí ya NO aparece la galería, solo lo esencial) */}
       {menuOpen && (
         <div className="md:hidden bg-white border-b border-stone-100 shadow-lg">
           <div className="px-6 py-4 space-y-3">
             <a
-              href="/#servicios"
+              href="#servicios"
               onClick={() => setMenuOpen(false)}
               className="block text-stone-700 font-medium py-2"
             >
               Servicios
             </a>
-            <Link
-              to="/galeria"
-              onClick={() => setMenuOpen(false)}
-              className="block text-stone-700 font-medium py-2"
-            >
-              Galería
-            </Link>
             <a
-              href="/#contacto"
+              href="#contacto"
               onClick={() => setMenuOpen(false)}
               className="block text-stone-700 font-medium py-2"
             >
