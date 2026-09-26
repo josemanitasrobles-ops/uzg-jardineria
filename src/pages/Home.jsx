@@ -10,6 +10,7 @@ import Footer from "../components/landing/Footer";
 import AdminPasswordModal from "../components/admin/AdminPasswordModal";
 import AdminPanel from "../components/admin/AdminPanel";
 import GaleriaFotos from "../components/landing/GaleriaFotos";
+import FAQ from "../components/landing/FAQ";
 
 export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -44,6 +45,10 @@ export default function Home() {
       <div id="fotos">
         <GaleriaFotos />
       </div>
+      {/* Sección de Preguntas Frecuentes */}
+      <div id="faq">
+        <FAQ />
+      </div>  
 
       {/* Sección de Reseñas */}
       <div id="resenas">
