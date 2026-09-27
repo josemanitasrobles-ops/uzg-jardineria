@@ -11,6 +11,7 @@ import AdminPasswordModal from "../components/admin/AdminPasswordModal";
 import AdminPanel from "../components/admin/AdminPanel";
 import GaleriaFotos from "../components/landing/GaleriaFotos";
 import FAQ from "../components/landing/FAQ";
+import ResenasGoogle from "../components/landing/ResenasGoogle";
 
 export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -54,6 +55,11 @@ export default function Home() {
       <div id="resenas">
         <FormularioResena />
       </div>
+
+      {/* Sección de Reseñas Google */}
+      <div id="resenas-google">
+        <ResenasGoogle />
+      </div>  
     
 
       {/* Sección de Contacto Final */}
