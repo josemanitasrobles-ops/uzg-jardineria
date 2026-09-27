@@ -77,13 +77,6 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-b border-stone-100 shadow-lg">
           <div className="px-6 py-4 space-y-3">
             <a
-              href="#servicios"
-              onClick={() => setMenuOpen(false)}
-              className="block text-stone-700 font-medium py-2"
-            >
-              Servicios
-            </a>
-            <a
               href="#contacto"
               onClick={() => setMenuOpen(false)}
               className="block text-stone-700 font-medium py-2"
