@@ -108,14 +108,14 @@
       "paymentAccepted": "Efectivo, Transferencia bancaria"
     }
     </script>
-   <link rel="stylesheet" href="/assets/index.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/assets/index.css"></noscript>
+    <link rel="stylesheet" href="/assets/index.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/index.css"></noscript>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- This site is converting visitors into subscribers and customers with https://respond.io -->
-   <!-- Widget de respond.io diferido para proteger la velocidad -->
+
+    <!-- Widget de respond.io diferido para proteger la velocidad -->
     <script>
       window.addEventListener('load', function() {
         var timer = setTimeout(function() {
@@ -127,10 +127,13 @@
         }, 2500);
       });
     </script>
-    <!-- https://respond.io -->
+
+    <!-- Elfsight AI Chatbot -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-9268934f-9e65-430d-afcf-ad9ebf71d5d9" data-elfsight-app-lazy></div>
 
     <!-- Aviso de Cookies RGPD Avanzado (3 Botones) -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 99999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50; box-shadow: 0 -4px 10px rgba(0,0,0,0.3);">
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; color: #fff; padding: 20px; display: none; justify-content: space-between; align-items: center; z-index: 99999; font-family: sans-serif; box-sizing: border-box; flex-wrap: wrap; gap: 15px; border-top: 3px solid #4CAF50; box-shadow: -4px 10px rgba(0,0,0,0.3);">
       <div style="flex: 1; min-width: 280px;">
         <p style="margin: 0 0 5px 0; font-size: 15px; font-weight: bold;">Política de Cookies</p>
         <p style="margin: 0; font-size: 13px; line-height: 1.4; color: #ccc;">
@@ -147,6 +150,7 @@
     <script>
       function handleCookies(action) {
         localStorage.setItem('cookieConsent', action);
+        localStorage.setItem('uzg_cookies_decision', action);
         var banner = document.getElementById('cookie-banner');
         if (banner) banner.style.display = 'none';
         if (action === 'all') {
@@ -154,40 +158,17 @@
         }
       }
 
-      window.addEventListener('DOMContentLoaded', function() {
-        var consent = localStorage.getItem('cookieConsent');
-        if (!consent) {
-          var banner = document.getElementById('cookie-banner');
-          if (banner) banner.style.display = 'flex';
+      window.addEventListener("DOMContentLoaded", () => {
+        const decision = localStorage.getItem('cookieConsent') || localStorage.getItem('uzg_cookies_decision');
+        if (!decision) {
+          setTimeout(() => {
+            const banner = document.getElementById("cookie-banner");
+            if (banner) {
+              banner.style.display = "flex";
+            }
+          }, 5000); // Aparece tras 5 segundos si no hay decisión
         }
       });
     </script>
-    <script>
-  // Función que maneja los botones del banner
-  function handleCookies(action) {
-    // Guardamos que el usuario ya ha tomado una decisión
-    localStorage.setItem("uzg_cookies_decision", action);
-    // Ocultamos el banner inmediatamente
-    const banner = document.getElementById("cookie-banner");
-    if (banner) {
-      banner.style.display = "none";
-    }
-  }
-
-  // Comprobamos al cargar la página si ya se tomó una decisión previa
-  window.addEventListener("DOMContentLoaded", () => {
-    const decision = localStorage.getItem("uzg_cookies_decision");
-    
-    // Si NO hay ninguna decisión guardada, lo mostramos tras 5 segundos
-    if (!decision) {
-      setTimeout(() => {
-        const banner = document.getElementById("cookie-banner");
-        if (banner) {
-          banner.style.display = "flex";
-        }
-      }, 5000); // 5000 milisegundos = 5 segundos
-    }
-  });
-</script>
   </body>
 </html>
