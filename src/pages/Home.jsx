@@ -42,10 +42,18 @@ export default function Home() {
       <div id="sobre-mi">
         <SobreMi />
       </div>
+
       {/* Sección de fotos */}
       <div id="fotos">
         <GaleriaFotos />
       </div>
+
+      {/* NUEVA SECCIÓN: Antes y Después */}
+      <div id="antes-despues" className="py-12 px-4 text-center bg-white">
+        <h2 className="text-3xl font-bold mb-6 text-stone-800">Transformaciones: Antes y Después</h2>
+        <div className="elfsight-app-fc083503-b1f4-4818-b9ac-6874970f2c0c" data-elfsight-app-lazy></div>
+      </div>
+
       {/* Sección de Preguntas Frecuentes */}
       <div id="faq">
         <FAQ />
@@ -60,7 +68,6 @@ export default function Home() {
       <div id="resenas-google">
         <ResenasGoogle />
       </div>  
-    
 
       {/* Sección de Contacto Final */}
       <div id="contacto">
